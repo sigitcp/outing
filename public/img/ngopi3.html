@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Panorama Viewer</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #panorama-container {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+
+  <!-- THREE.js versi r105 (cocok dengan Panolens) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
+
+  <!-- Panolens.js -->
+  <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
+</head>
+<body>
+  <div id="panorama-container"></div>
+
+  <script>
+    const panorama = new PANOLENS.ImagePanorama("ngopi3.JPG");
+    const viewer = new PANOLENS.Viewer({
+      container: document.getElementById("panorama-container")
+    });
+    viewer.add(panorama);
+  </script>
+</body>
+</html>
